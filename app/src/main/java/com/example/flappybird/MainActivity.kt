@@ -87,61 +87,79 @@ fun FlappyBirdGame() {
                 birdVelocity += gravity
                 birdY += birdVelocity
 
-                var hit = false
                 var collidedPipe: Pipe? = null
 
                 val birdWidth = screenHeight * 0.05f
-                val birdHeight = birdWidth
+                val birdRadius = birdWidth / 2
                 val birdX = screenWidth * 0.1f
-                val birdYPos = birdY
+                val birdCenterX = birdX + birdRadius
+                val birdCenterY = birdY + birdRadius
 
                 // בדיקת התנגשות עם צינורות
                 pipes.forEach { pipe ->
-                    if (birdX < pipe.x + pipe.width &&
-                        birdX + birdWidth > pipe.x &&
-                        (birdYPos < pipe.top || birdYPos + birdHeight > pipe.bottom)
-                    ) {
-                        hit = true
+                    val pipeLeft = pipe.x
+                    val pipeRight = pipe.x + pipe.width
+                    val pipeTop = pipe.top
+                    val pipeBottom = pipe.bottom
+
+                    val collisionTop = birdCenterX + birdRadius > pipeLeft &&
+                            birdCenterX - birdRadius < pipeRight &&
+                            birdCenterY - birdRadius < pipeTop
+
+                    val collisionBottom = birdCenterX + birdRadius > pipeLeft &&
+                            birdCenterX - birdRadius < pipeRight &&
+                            birdCenterY + birdRadius > pipeBottom
+
+                    if ((collisionTop || collisionBottom) && !invincible) {
+                        lives -= 1
+                        invincible = true
                         collidedPipe = pipe
+
+                        // החזרת הציפור למרכז הפתח בצינור
+                        birdY = (pipe.top + pipe.bottom) / 2 - birdRadius
+                        birdVelocity = 0f
+
+                        coroutineScope.launch {
+                            delay(1000L)
+                            invincible = false
+                        }
+
+                        if (lives <= 0) {
+                            gameState = GameState.GAME_OVER
+                            if (score > highScore) highScore = score
+                        }
                     }
 
+                    // עדכון ניקוד
                     if (!pipe.passed && pipe.x + pipe.width < birdX) {
                         pipe.passed = true
                         score += 1
-                        if (score > highScore) {
-                            highScore = score // עדכון שיא בזמן אמת
-                        }
+                        if (score > highScore) highScore = score
                     }
                 }
 
                 // בדיקת חוץ מסך
-                if (birdY < 0f) hit = true
-                if (birdY + birdHeight > screenHeight) hit = true
-
-                if (hit && !invincible) {
+                if (birdCenterY - birdRadius < 0f && !invincible) {
                     lives -= 1
                     invincible = true
-
-                    // אם פגיעה בצינור → חזרה למרכז הפתח
-                    if (collidedPipe != null) {
-                        birdY = (collidedPipe.top + collidedPipe.bottom) / 2 - birdHeight / 2
-                    } else {
-                        birdY = screenHeight / 2
-                    }
-
+                    birdY = birdRadius
                     birdVelocity = 0f
-
                     coroutineScope.launch {
                         delay(1000L)
                         invincible = false
                     }
-
-                    if (lives <= 0) {
-                        gameState = GameState.GAME_OVER
-                        if (score > highScore) {
-                            highScore = score
-                        }
+                    if (lives <= 0) gameState = GameState.GAME_OVER
+                }
+                if (birdCenterY + birdRadius > screenHeight && !invincible) {
+                    lives -= 1
+                    invincible = true
+                    birdY = screenHeight - birdWidth
+                    birdVelocity = 0f
+                    coroutineScope.launch {
+                        delay(1000L)
+                        invincible = false
                     }
+                    if (lives <= 0) gameState = GameState.GAME_OVER
                 }
 
                 // הזזת צינורות
