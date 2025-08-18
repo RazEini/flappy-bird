@@ -299,7 +299,7 @@ fun FlappyBirdGame() {
                     Text(
                         text = "High Score: $highScore",
                         color = Color.Yellow,
-                        fontSize = 20.sp,
+                        fontSize = 16.sp,
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier
                             .padding(16.dp)
