@@ -17,6 +17,13 @@
 
   <br/>
 
+  ## 🎬 Demo / המחשה
+
+<p align="center">
+  <img src="assets/Screen_recording_20251013_144403.gif" alt="Flappy Bird Demo" width="250"/>
+</p>
+
+
   <hr>
 
   <br/>
