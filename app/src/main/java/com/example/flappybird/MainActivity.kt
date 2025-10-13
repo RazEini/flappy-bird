@@ -1,5 +1,6 @@
 package com.example.flappybird
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -47,6 +48,7 @@ class MainActivity : ComponentActivity() {
 
 enum class GameState { START, PLAYING, GAME_OVER }
 
+@SuppressLint("UnusedBoxWithConstraintsScope")
 @Composable
 fun FlappyBirdGame() {
     BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
