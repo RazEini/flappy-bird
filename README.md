@@ -1,127 +1,120 @@
+# Flappy Bird - Android
+
 <div dir="rtl">
 
-  <h1 align="right">🕹️ Flappy Bird App – Kotlin + Jetpack Compose</h1>
+משחק Flappy Bird מקורי לאנדרואיד, שנבנה ב־<strong>Kotlin</strong> וב־<strong>Jetpack Compose</strong>.
+שלוטו בציפור, עברו בין צינורות והישמרו מפני החזרה לאזורי המסך העליונים והתחתונים.
 
-  <p>
-    מימוש משחק **Flappy Bird** למובייל ב‑<strong>Jetpack Compose</strong>, עם אנימציות חלקות, מכניקת קפיצה ופיזיקה בסיסית.<br>
-    המשחק כולל מסך פתיחה, משחק, מסך סיום ומעקב ניקוד.
-  </p>
-
-  <p align="right">
-    <img src="https://img.shields.io/badge/Kotlin-100%25-orange" alt="Kotlin Badge">
-    <img src="https://img.shields.io/badge/AndroidStudio-IDE-lightgrey" alt="Android Studio Badge">
-    <img src="https://img.shields.io/badge/JetpackCompose-UI-blue" alt="Jetpack Compose Badge">
-    <img src="https://img.shields.io/badge/Material3-Design-green" alt="Material3 Badge">
-    <img src="https://img.shields.io/badge/License-MIT-blue" alt="License Badge">
-  </p>
-
-  <br/>
-
-  <h2 align="right">🎬 Demo / המחשה</h2>
-
-<p align="center">
-  <img src="assets/Screen_recording_20251013_144403.gif" alt="Flappy Bird Demo" width="250"/>
+<p>
+  <img src="https://img.shields.io/badge/Kotlin-2.0-7F52FF?logo=kotlin&logoColor=white" alt="Kotlin">
+  <img src="https://img.shields.io/badge/Jetpack%20Compose-UI-4285F4?logo=jetpackcompose&logoColor=white" alt="Jetpack Compose">
+  <img src="https://img.shields.io/badge/Material%203-Design-6200EE" alt="Material 3">
+  <img src="https://img.shields.io/badge/Android-24%2B-3DDC84?logo=android&logoColor=white" alt="Android 24+">
+  <img src="https://img.shields.io/badge/License-MIT-yellow" alt="MIT License">
 </p>
 
+## הצגת המשחק
 
-  <hr>
+<p align="center">
+  <img src="assets/Screen_recording_20251013_144403.gif" alt="הדגמת המשחק Flappy Bird" width="250">
+</p>
 
-  <br/>
+## תכונות
 
-  <h2 align="right">🚀 Features</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>תחום</th>
-        <th>תכונה</th>
-        <th>סטטוס</th>
-        <th>הערות</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>🟢 Gameplay</td>
-        <td>Tap to make the bird jump</td>
-        <td>✅</td>
-        <td>מכניקת קפיצה פשוטה וטבעית</td>
-      </tr>
-      <tr>
-        <td>🚧 Obstacles</td>
-        <td>Dynamic pipes with random heights</td>
-        <td>✅</td>
-        <td>אתגר משתנה בכל משחק</td>
-      </tr>
-      <tr>
-        <td>📊 Score</td>
-        <td>Score tracking & high score system</td>
-        <td>✅</td>
-        <td>שמירת שיא גבוה</td>
-      </tr>
-      <tr>
-        <td>❤️ Lives</td>
-        <td>Multiple lives & invincibility frames on hit</td>
-        <td>✅</td>
-        <td>אפשרות להחיות לאחר פגיעה</td>
-      </tr>
-      <tr>
-        <td>🎨 Screens</td>
-        <td>Start screen, gameplay, and game over screen</td>
-        <td>✅</td>
-        <td>UI אינטראקטיבי</td>
-      </tr>
-      <tr>
-        <td>🐦 Animation</td>
-        <td>Animated bird sprite</td>
-        <td>✅</td>
-        <td>תנועה חלקה של הציפור</td>
-      </tr>
-      <tr>
-        <td>⚡ Physics</td>
-        <td>Simple gravity & jump mechanics</td>
-        <td>✅</td>
-        <td>פיזיקה בסיסית</td>
-      </tr>
-    </tbody>
-  </table>
+- שליטה אינטואיטיבית - לחיצה על המסך גורמת לציפור לקפוץ.
+- צינורות דינמיים עם גובה משתנה ושמירה על קושי חלק.
+- מערכת ניקוד ושיא ניקוד בתוך הריצה הנוכחית.
+- שלושה חיים ומנגנון חסינות קצר לזמן של שנייה לאחר פגיעה.
+- אנימציה לשני פרקי התעופה של הציפור.
+- מסכים למשחק, לתחילת משחק ולתוצאה.
+- ממשק Jetpack Compose מותאם לגודל המסך.
 
-  <br/>
+## דרישות
 
-  <hr>
+- Android Studio (גרסה התומכת ב־AGP 8.13)
+- JDK 11
+- Android SDK 35
+- מכשיר אנדרואיד עם גרסה 7.0 ומעלה (API 24), או Emulator
 
-  <br/>
+## הרצה
 
-  <h2 align="right">⚙️ Installation / התקנה</h2>
-  <p>
-    כדי להריץ את המשחק, יש צורך ב־<strong>Android Studio</strong> עם Kotlin ו‑Jetpack Compose.  
-    פשוט פתחו את הפרויקט ו־Run ל־Emulator או למכשיר אמיתי.
-  </p>
+1. שכפחו את הפרויקט:
 
-  <br/>
+   ```bash
+   git clone https://github.com/RazEini/flappy-bird.git
+   cd flappy-bird
+   ```
 
-  <hr>
+2. פתחו את תיקיית הפרויקט ב־Android Studio.
 
-  <br/>
+3. המתינו לסנכרון Gradle.
 
-  <h2>🛠️ Tech Stack</h2>
-  <ul>
-    <li><strong>Language:</strong> Kotlin</li>
-    <li><strong>IDE:</strong> Android Studio</li>
-    <li><strong>UI:</strong> Jetpack Compose</li>
-    <li><strong>Design:</strong> Material3</li>
-  </ul>
+4. בחרו Emulator או מכשיר מחובר ולחצו על <strong>Run</strong>.
 
-  <br/>
+### הרצה משורת הפקודה
 
-  <hr>
+ב־Linux או macOS:
 
-  <h2>📄 רישיון</h2>
-  <p>
-    הפרויקט מופץ תחת רישיון <strong>MIT</strong> – חופשי לשימוש, שינוי והפצה, כל עוד נשמר קרדיט למחבר.
-  </p>
-  <p>למידע נוסף ראה את קובץ <a href="LICENSE">LICENSE</a></p>
+```bash
+./gradlew assembleDebug
+```
 
-  <hr>
+ב־Windows:
 
-  <p><strong>👨‍💻 Raz Eini (2025)</strong></p>
+```powershell
+.\gradlew.bat assembleDebug
+```
+
+קובץ ה־APK יופיע ב־`app/build/outputs/apk/debug/`.
+
+## איך משחקים
+
+| מצב | פעולה |
+|---|---|
+| מסך פתיחה | לחצו על המסך או על `START` |
+| בזמן המשחק | לחצו על המסך כדי להעלות את הציפור |
+| Game Over | לחצו על המסך כדי לחזור למסך הפתיחה |
+
+כל מעבר מוצלח בין צינורות מוסיף נקודה אחת. פגיעה בצינור או בגבולות המסך מורידה חיים, והמשחק מסתיים לאחר שלוש פגיעות.
+
+## טכנולוגיות
+
+- [Kotlin](https://kotlinlang.org/)
+- [Jetpack Compose](https://developer.android.com/jetpack/compose)
+- [Material 3](https://m3.material.io/)
+- Android Canvas ו‑Coroutines
+- Gradle עם Kotlin DSL
+
+## מבנה הפרויקט
+
+```text
+.
+├── app/src/main/
+│   ├── java/com/example/flappybird/
+│   │   ├── MainActivity.kt        # לוגיקה, מסכים וממשק המשחק
+│   │   └── ui/theme/              # Theme וערכי עיצוב
+│   ├── res/drawable/              # רקע, ציפור ומרכיבי גרפיקה
+│   └── AndroidManifest.xml
+├── assets/                        # GIF להדגמת המשחק
+├── build.gradle.kts
+└── settings.gradle.kts
+```
+
+## בדיקות
+
+הריצו את בדיקות היחידה וה‑instrumented:
+
+```bash
+./gradlew test
+./gradlew connectedAndroidTest
+```
+
+## רישיון
+
+הפרויקט מופץ תחת רישיון <strong>MIT</strong>. לפרטים מלאים ראו את הקובץ [LICENSE](LICENSE).
+
+---
+
+נבנה על ידי <strong>Raz Eini</strong>.
 
 </div>
